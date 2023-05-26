@@ -1,4 +1,5 @@
 import { BadgeCardEdit } from '../components/BadgeCardEdit';
+import { Center, Container, Grid, createStyles } from '@mantine/core'
 import { BaseDemo } from '../components/Dropzone';
 //import { BaseDemo } from '../components/Dropzone';
 
@@ -9,8 +10,10 @@ export default function Home() {
   return (
     <>
       <main>
+        
+      <Container size={400}>
         <BaseDemo></BaseDemo>
-      <BadgeCardEdit
+        <BadgeCardEdit
                             image=""
                             title="What is your problem"
                             country="Difficulty"
@@ -30,6 +33,7 @@ export default function Home() {
                                 },
                             ]}
                         />
+            </Container>
       </main>
     </>
   )

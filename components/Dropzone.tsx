@@ -28,7 +28,7 @@ export function BaseDemo(props: Partial<DropzoneProps>) {
           />
         </Dropzone.Reject>
         <Dropzone.Idle>
-          <IconPhoto size="3.2" stroke={1.5} />
+          <IconPhoto size="120" stroke={1.5} />
         </Dropzone.Idle>
 
         <div>
@@ -36,7 +36,7 @@ export function BaseDemo(props: Partial<DropzoneProps>) {
             Drag images here or click to select files
           </Text>
           <Text size="sm" color="dimmed" inline mt={7}>
-            Attach as many files as you like, each file should not exceed 5mb
+            Attach some pictures
           </Text>
         </div>
       </Group>
