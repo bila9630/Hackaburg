@@ -44,6 +44,7 @@ const useStyles = createStyles((theme) => ({
     description: {
         marginTop: theme.spacing.xl,
         marginBottom: theme.spacing.xl * 2,
+        maxWidth: 500,
         fontSize: 22,
         textAlign: "center",
 
@@ -77,9 +78,11 @@ export function HeroTitle() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, delay: 0.5, ease: "easeIn" }}
                 >
-                    <Text className={classes.description} color="dimmed">
-                        We will help you repair your broken items instead of throwing them away.{' '}
-                    </Text>
+                    <Center>
+                        <Text className={classes.description} color="dimmed">
+                            We will help you repair your broken items instead of throwing them away.
+                        </Text>
+                    </Center>
                 </motion.div>
 
                 <motion.div
