@@ -1,4 +1,7 @@
-import {BadgeCardEdit } from '../components/BadgeCardEdit';
+import { BadgeCardEdit } from '../components/BadgeCardEdit';
+import { BaseDemo } from '../components/Dropzone';
+//import { BaseDemo } from '../components/Dropzone';
+
 import { HeroTitle } from '../components/HeroTitle';
 import Product from '../components/Product';
 
@@ -6,8 +9,9 @@ export default function Home() {
   return (
     <>
       <main>
+        <BaseDemo></BaseDemo>
       <BadgeCardEdit
-                            image="https://www.svgrepo.com/show/157858/plus.svg"
+                            image=""
                             title="What is your problem"
                             country="Difficulty"
                             description="Describe your Problem in detail"
