@@ -5,12 +5,14 @@ import {
     Text,
     Group,
     Badge,
+    Space,
     Button,
     ActionIcon,
     createStyles,
     TextInput,
     Textarea,
-    NativeSelect
+    NativeSelect,
+    Container
 } from '@mantine/core';
 
 
@@ -65,19 +67,21 @@ export function BadgeCardEdit({ image, title, description, country, badges }: Ba
     return (
         <Card withBorder radius="md" p="md" className={classes.card}>
             <Card.Section className={classes.section} mt="md">
-                <Group position="apart">
-                    <TextInput fz="lg" fw={500} label='Title'
+                    
+                    <TextInput  fz="lg" fw={500} label='Title'
                     placeholder="Enter your problem title" withAsterisk></TextInput>
+                    <Space h="xs" />
                     <NativeSelect
                         data={['unknown','easy', 'medium', 'hard',]}
                         label="Select the anticipated difficulty"
-                        description="unknown"
                     />
-                
-                <TextInput fz="lg" fw={500} label='Description'
-                    placeholder="Enter details about your problem" withAsterisk></TextInput>
-                    </Group>
+                    <Space h="xs" />
+                    <Textarea autosize
+                    minRows={2} fz="mi" fw={500} label='Description'
+                    placeholder="Enter details about your problem" withAsterisk></Textarea>
+                    
             </Card.Section>
+            
 
             <Card.Section className={classes.section}>
                 <Text mt="md" className={classes.label} c="dimmed">
