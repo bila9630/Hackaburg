@@ -1,6 +1,7 @@
-import { Group, Text, useMantineTheme, Image} from '@mantine/core';
+
+import { Group, Text, useMantineTheme, Image } from '@mantine/core';
 import { IconUpload, IconPhoto, IconX } from '@tabler/icons';
-import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE} from '@mantine/dropzone';
+import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE } from '@mantine/dropzone';
 
 export function BaseDemo(props: Partial<DropzoneProps>) {
   const theme = useMantineTheme();

@@ -6,11 +6,12 @@ import {
     Group,
     Badge,
     Button,
-    ActionIcon,
     createStyles,
     Textarea,
-    Anchor
+    Anchor,
+    Grid
 } from '@mantine/core';
+import { useState } from 'react';
 
 const useStyles = createStyles((theme) => ({
     card: {
@@ -49,6 +50,9 @@ interface BadgeCardProps {
 
 export function BadgeCard({ image, title, description, difficulty, attributes }: BadgeCardProps) {
     const { classes, theme } = useStyles();
+    const [textAreValue, setTextAreaValue] = useState("");
+    const [displaySuccess, setDisplaySuccess] = useState(false)
+
 
     const features = attributes.map((badge) => (
         <Badge
@@ -63,7 +67,7 @@ export function BadgeCard({ image, title, description, difficulty, attributes }:
     return (
         <Card withBorder radius="md" p="md" className={classes.card}>
             <Card.Section>
-                <Image src={image} alt={title} height={180} />
+                <Image src={image} alt={title} height={180} withPlaceholder />
             </Card.Section>
 
             <Card.Section className={classes.section} mt="md">
@@ -88,24 +92,31 @@ export function BadgeCard({ image, title, description, difficulty, attributes }:
             </Card.Section>
 
             <Textarea
-              label="Contact the lister"
-              placeholder="Your message"
-              onChange={(event) => ''}
-              radius="md"
+                label="Contact the lister"
+                placeholder="Your message"
+                value={textAreValue}
+                onChange={(event) => setTextAreaValue(event.currentTarget.value)}
+                radius="md"
             />
-            <Button
-            styles={(theme) => ({
-                root: {
-                  marginTop: 5}})}
-                >Submit</Button>
+            {displaySuccess && (<Text ta={"center"} mt={10} mb={10} c={"green"}>Your message has been sent successfully!</Text>)}
 
-            <Group mt="xs" >
-            <Anchor href="tel:01571234567891055246">
-            <Button leftIcon={<IconPhone size="1rem" />}>
-                Call Lister
-            </Button>
-            </Anchor>
-            </Group>
+            <Grid>
+                <Grid.Col sm={8}>
+                    <Button onClick={() => {
+                        setTextAreaValue("")
+                        setDisplaySuccess(true)
+                    }}>
+                        Submit
+                    </Button>
+                </Grid.Col>
+                <Grid.Col sm={4}>
+                    <Anchor href="tel:01571234567891055246">
+                        <Button leftIcon={<IconPhone size="1rem" />}>
+                            Call Lister
+                        </Button>
+                    </Anchor>
+                </Grid.Col>
+            </Grid>
         </Card>
     );
 }

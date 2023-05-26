@@ -43,11 +43,11 @@ const Concept = () => {
                     <List.Item>Refurbishing your knowledge by helping others is the best way to stay updated in the 21st century.</List.Item>
                 </List>
                 <Title mt={50} order={2} c={"white"}>
-                    Repairer's benefits:
+                    Repairer&apos;s benefits:
                 </Title>
                 <FeaturesGrid />
                 <Title order={2} c={"white"}>
-                    User's benefits:
+                    User&apos;s benefits:
                 </Title>
                 <FeaturesGrid data={[
                     {
