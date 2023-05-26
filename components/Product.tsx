@@ -58,17 +58,13 @@ const Product = () => {
                                     description={posting.description}
                                     attributes={[
                                         {
-                                            "emoji": "☀️",
-                                            "label": "Sunny weather"
+                                            "emoji": "Model:",
+                                            "label": "Bosch 14Ft"
                                         },
                                         {
-                                            "emoji": "🦓",
-                                            "label": "Onsite zoo"
-                                        },
-                                        {
-                                            "emoji": "🌊",
-                                            "label": "Sea"
-                                        },
+                                            "emoji": "Year:",
+                                            "label": "2015"
+                                        }
                                     ]}
                                 />
                             </Grid.Col>
