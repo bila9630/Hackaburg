@@ -67,8 +67,8 @@ export function HeroTitle() {
                     className={classes.title}
                 >
                     Repair instead of{' '}
-                    <Text component="span" variant="gradient" gradient={{ from: "#FBD72B", to: "#F9484A" }} inherit>
-                        Throwing-away
+                    <Text component="span" c={"#00BF63"} inherit>
+                        Throwing Away
                     </Text>{' '}
                 </motion.h1>
 
@@ -91,11 +91,9 @@ export function HeroTitle() {
                         <Button
                             size="xl"
                             // className={classes.control}
-                            variant="gradient"
-                            gradient={{ from: "#FBD72B", to: "#F9484A" }}
                             type="submit"
                         >
-                            Let us help you
+                            Repair!
                         </Button>
                     </Center>
                 </motion.div>

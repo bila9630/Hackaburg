@@ -107,7 +107,7 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
             <Container className={classes.header}>
                 <Text sx={{ cursor: "pointer" }} onClick={() => { router.push("/") }}>
                     Share
-                    <Text component="span" variant="gradient" gradient={{ from: "#FBD72B", to: "#F9484A" }}>
+                    <Text component="span" c={"#00BF63"}>
                         Repair
                     </Text>
                 </Text>
