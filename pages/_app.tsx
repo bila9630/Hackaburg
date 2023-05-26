@@ -4,6 +4,7 @@ import { MantineProvider } from '@mantine/core';
 import Layout from '../components/Layout';
 import { Analytics } from '@vercel/analytics/react';
 import Head from 'next/head'
+import DatabaseContextProvider from '../contexts/DatabaseContext';
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -17,21 +18,22 @@ export default function App({ Component, pageProps }: AppProps) {
       primaryColor: "brand",
       colorScheme: "dark"
     }} withGlobalStyles withNormalizeCSS>
-      {/* layout contains header, footer and cookie */}
-      <Layout>
-        <Head>
-          <title>ShareRepair</title>
-          <meta name="description" content="lorem ipsum!" />
-          <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1" />
-          <link
-            rel="icon"
-            href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎷</text></svg>"
-          />
-        </Head>
-        <Component {...pageProps} />
-        <Analytics />
-      </Layout>
-
+      <DatabaseContextProvider>
+        {/* layout contains header and footer */}
+        <Layout>
+          <Head>
+            <title>ShareRepair</title>
+            <meta name="description" content="lorem ipsum!" />
+            <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1" />
+            <link
+              rel="icon"
+              href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎷</text></svg>"
+            />
+          </Head>
+          <Component {...pageProps} />
+          <Analytics />
+        </Layout>
+      </DatabaseContextProvider>
     </MantineProvider>
   )
 }

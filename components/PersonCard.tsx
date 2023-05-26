@@ -16,7 +16,7 @@ export function PersonCard({ name, position, description, image, linkedin }: any
             <Group position="apart" mt="md" mb="xs">
                 <div>
                     <Text weight={500} c="white" size={"lg"}>{name}</Text>
-                    <Text c="#FBD72B">{position}</Text>
+                    <Text c="#00BF63">{position}</Text>
                 </div>
                 <a href={linkedin} target="_blank" rel="noreferrer" >
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#DEE2E6" viewBox="0 0 24 24">
