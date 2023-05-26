@@ -37,18 +37,18 @@ const useStyles = createStyles((theme) => ({
 interface BadgeCardProps {
     image: string;
     title: string;
-    country: string;
+    difficulty: string;
     description: string;
-    badges: {
+    attributes: {
         emoji: string;
         label: string;
     }[];
 }
 
-export function BadgeCard({ image, title, description, country, badges }: BadgeCardProps) {
+export function BadgeCard({ image, title, description, difficulty, attributes }: BadgeCardProps) {
     const { classes, theme } = useStyles();
 
-    const features = badges.map((badge) => (
+    const features = attributes.map((badge) => (
         <Badge
             color={theme.colorScheme === 'dark' ? 'dark' : 'gray'}
             key={badge.label}
@@ -69,7 +69,7 @@ export function BadgeCard({ image, title, description, country, badges }: BadgeC
                     <Text fz="lg" fw={500}>
                         {title}
                     </Text>
-                    <Badge size="sm">{country}</Badge>
+                    <Badge size="sm">{difficulty}</Badge>
                 </Group>
                 <Text fz="sm" mt="xs">
                     {description}

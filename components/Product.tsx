@@ -22,7 +22,6 @@ const Product = () => {
         const fetchData = async () => {
             await fetchPosting(setPostings);
         };
-
         fetchData();
     }, [fetchPosting])
 
@@ -49,7 +48,33 @@ const Product = () => {
                     <Button onClick={() => { console.log(postings) }}>fetch</Button>
                 </Center>
                 <Grid>
-                    <Grid.Col sm={12} md={4}>
+                    {postings.map((posting: any, index: number) => {
+                        return (
+                            <Grid.Col key={index} sm={12} md={4}>
+                                <BadgeCard
+                                    image={posting.image}
+                                    title={posting.title}
+                                    difficulty={posting.difficulty}
+                                    description={posting.description}
+                                    attributes={[
+                                        {
+                                            "emoji": "☀️",
+                                            "label": "Sunny weather"
+                                        },
+                                        {
+                                            "emoji": "🦓",
+                                            "label": "Onsite zoo"
+                                        },
+                                        {
+                                            "emoji": "🌊",
+                                            "label": "Sea"
+                                        },
+                                    ]}
+                                />
+                            </Grid.Col>
+                        )
+                    })}
+                    {/* <Grid.Col sm={12} md={4}>
                         <BadgeCard
                             image="https://images.unsplash.com/photo-1611416517780-eff3a13b0359?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1349&q=80"
                             title="New office in New York"
@@ -70,51 +95,7 @@ const Product = () => {
                                 },
                             ]}
                         />
-                    </Grid.Col>
-                    <Grid.Col sm={12} md={4}>
-                        <BadgeCard
-                            image="https://images.unsplash.com/photo-1611416517780-eff3a13b0359?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1349&q=80"
-                            title="New office in New York"
-                            country="New York"
-                            description="We are expanding to New York! Check out our new office!!"
-                            badges={[
-                                {
-                                    "emoji": "☀️",
-                                    "label": "Sunny weather"
-                                },
-                                {
-                                    "emoji": "🦓",
-                                    "label": "Onsite zoo"
-                                },
-                                {
-                                    "emoji": "🌊",
-                                    "label": "Sea"
-                                },
-                            ]}
-                        />
-                    </Grid.Col>
-                    <Grid.Col sm={12} md={4}>
-                        <BadgeCard
-                            image="https://images.unsplash.com/photo-1611416517780-eff3a13b0359?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1349&q=80"
-                            title="New office in New York"
-                            country="New York"
-                            description="We are expanding to New York! Check out our new office!!"
-                            badges={[
-                                {
-                                    "emoji": "☀️",
-                                    "label": "Sunny weather"
-                                },
-                                {
-                                    "emoji": "🦓",
-                                    "label": "Onsite zoo"
-                                },
-                                {
-                                    "emoji": "🌊",
-                                    "label": "Sea"
-                                },
-                            ]}
-                        />
-                    </Grid.Col>
+                    </Grid.Col> */}
                 </Grid>
             </Container>
         </div>
