@@ -1,8 +1,6 @@
-import { Button, Center, Container, createStyles, Grid, Text, TextInput } from '@mantine/core';
-import { useForm } from '@mantine/form';
+import { Button, Center, Container, createStyles, Text } from '@mantine/core';
 import { motion } from "framer-motion";
 import { useRouter } from 'next/router';
-import { useState } from 'react';
 
 
 const BREAKPOINT = '@media (max-width: 755px)';
@@ -12,7 +10,8 @@ const useStyles = createStyles((theme) => ({
         position: 'relative',
         boxSizing: 'border-box',
         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white,
-        minHeight: "80vh",
+        // set up min height
+        minHeight: "90vh",
     },
 
     inner: {

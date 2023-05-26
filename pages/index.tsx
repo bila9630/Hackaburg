@@ -1,11 +1,12 @@
 import { HeroTitle } from '../components/HeroTitle';
+import Product from '../components/Product';
 
 export default function Home() {
   return (
     <>
       <main>
         <HeroTitle />
-        {/* <h1>Hello World</h1> */}
+        <Product />
       </main>
     </>
   )
