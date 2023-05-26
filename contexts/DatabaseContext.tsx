@@ -1,15 +1,25 @@
 import React, { createContext, useContext } from 'react'
 import { app } from '../firebaseClient';
-import { getFirestore, getDocs, collection, orderBy, query, limit } from "firebase/firestore";
+import { getFirestore, getDocs, collection, orderBy, query, limit, addDoc } from "firebase/firestore";
 
 export const DatabaseContext = createContext(null);
+
+interface postingData {
+    attributes: Map<string, any>,
+    description: String,
+    difficulty: String,
+    email: String,
+    image: String,
+    phone: Number,
+    price: Array<Number>,
+    title: String,
+}
 
 const DatabaseContextProvider = (props: any) => {
     const db: any = getFirestore(app)
 
-    // fetch all player score
+    // fetch all postings
     const fetchPosting = async (setPostings: any) => {
-        console.log("hello")
         await getDocs(query(collection(db, "postings")))
             .then((querySnapshot) => {
                 const newData = querySnapshot.docs
@@ -18,7 +28,24 @@ const DatabaseContextProvider = (props: any) => {
             })
     }
 
-    const value: any = { fetchPosting };
+    // add a new posting
+    const addPosting = async (data: postingData) => {
+        console.log("adding posting")
+        const postingDbRef = collection(db, "postings")
+        await addDoc(postingDbRef, {
+            attributes: data.attributes,
+            description: data.description,
+            difficulty: data.difficulty,
+            email: data.email,
+            image: data.image,
+            phone: data.phone,
+            price: data.price,
+            title: data.title
+        })
+        // db.collection("postings").add(data)
+    }
+
+    const value: any = { fetchPosting, addPosting };
 
     return (
         <DatabaseContext.Provider value={value}>
