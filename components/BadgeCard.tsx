@@ -1,4 +1,4 @@
-import { IconHeart } from '@tabler/icons';
+import { IconPhone } from '@tabler/icons';
 import {
     Card,
     Image,
@@ -8,6 +8,7 @@ import {
     Button,
     ActionIcon,
     createStyles,
+    Textarea,
 } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
@@ -85,13 +86,22 @@ export function BadgeCard({ image, title, description, difficulty, attributes }:
                 </Group>
             </Card.Section>
 
+            <Textarea
+              label="Contact the lister"
+              placeholder="Your message"
+              onChange={(event) => ''}
+              radius="md"
+            />
+            <Button
+            styles={(theme) => ({
+                root: {
+                  marginTop: 5}})}
+                >Submit</Button>
+
             <Group mt="xs">
-                <Button radius="md" style={{ flex: 1 }}>
-                    Show details
-                </Button>
-                <ActionIcon variant="default" radius="md" size={36}>
-                    <IconHeart size="1.1rem" className={classes.like} stroke={1.5} />
-                </ActionIcon>
+            <Button leftIcon={<IconPhone size="1rem" />}>
+                Call Lister
+            </Button>
             </Group>
         </Card>
     );
