@@ -65,14 +65,12 @@ export function BadgeCardEdit({ image, title, description, country, badges }: Ba
         <Card withBorder radius="md" p="md" className={classes.card}>
             <Card.Section className={classes.section} mt="md">
                 <Group position="apart">
-                    <Text fz="lg" fw={500}>
-                        {title}
-                    </Text>
+                    <TextInput fz="lg" fw={500}
+                    placeholder="Enter your problem title"></TextInput>
                     <Badge size="sm">{country}</Badge>
                 </Group>
-                <Text fz="sm" mt="xs">
-                    {description}
-                </Text>
+                <TextInput fz="lg" fw={500}
+                    placeholder="Enter details about your problem"></TextInput>
             </Card.Section>
 
             <Card.Section className={classes.section}>
