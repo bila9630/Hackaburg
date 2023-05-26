@@ -1,4 +1,4 @@
-import { IconPhone  } from '@tabler/icons';
+import { IconPhone, IconMail  } from '@tabler/icons';
 import {
     Card,
     Image,
@@ -10,6 +10,7 @@ import {
     createStyles,
     TextInput,
     Textarea,
+    NativeSelect
 } from '@mantine/core';
 
 
@@ -65,12 +66,17 @@ export function BadgeCardEdit({ image, title, description, country, badges }: Ba
         <Card withBorder radius="md" p="md" className={classes.card}>
             <Card.Section className={classes.section} mt="md">
                 <Group position="apart">
-                    <TextInput fz="lg" fw={500}
-                    placeholder="Enter your problem title"></TextInput>
-                    <Badge size="sm">{country}</Badge>
-                </Group>
-                <TextInput fz="lg" fw={500}
-                    placeholder="Enter details about your problem"></TextInput>
+                    <TextInput fz="lg" fw={500} label='Title'
+                    placeholder="Enter your problem title" withAsterisk></TextInput>
+                    <NativeSelect
+                        data={['unknown','easy', 'medium', 'hard',]}
+                        label="Select the anticipated difficulty"
+                        description="unknown"
+                    />
+                
+                <TextInput fz="lg" fw={500} label='Description'
+                    placeholder="Enter details about your problem" withAsterisk></TextInput>
+                    </Group>
             </Card.Section>
 
             <Card.Section className={classes.section}>
@@ -82,23 +88,21 @@ export function BadgeCardEdit({ image, title, description, country, badges }: Ba
                 </Group>
             </Card.Section>
 
-            <Textarea
-              label="Contact the lister"
-              placeholder="Your message"
-              onChange={(event) => ''}
-              radius="md"
-            />
+            <Group mt="xs">
+            <Button leftIcon={<IconMail size="1rem" />}>
+                <TextInput placeholder='Enter Mail'></TextInput>
+            </Button>
+            <Button leftIcon={<IconPhone size="1rem" />}>
+                <TextInput placeholder='Enter Phone Number'></TextInput>
+            </Button>
+            </Group>
+            <Group mt="xs">
             <Button
             styles={(theme) => ({
                 root: {
                   marginTop: 5}})}
                 >Submit</Button>
-
-            <Group mt="xs">
-            <Button leftIcon={<IconPhone size="1rem" />}>
-                Call Lister
-            </Button>
-            </Group>
+                </Group>
         </Card>
     );
 }
