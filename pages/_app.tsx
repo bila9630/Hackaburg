@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <MantineProvider theme={{
       colors: {
-        brand: ["#FFF4E6", "#FFF3BF", "#FFEC99", "#FFE066", "#FFD43B", "#FCC419", "#FAB005", "#F59F00", "#F08C00", "#E67700"],
+        brand: ["#EBFBEE", "#D3F9D8", "#B2F2BB", "#8CE99A", "#69DB7C", "#51CF66", "#40C057", "#37B24D", "#2F9E44", "#2B8A3E"],
         // theme.colors.dark[7] is body background color which got a shade darker
         dark: ["#C1C2C5", "#C1C2C5", "#909296", "#5C5F66", "#373A40", "#2C2E33", "#25262B", "#141517", "#141517", "#101113"],
       },

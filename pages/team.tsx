@@ -14,10 +14,10 @@ const Team = () => {
                 <Grid mt={50} mb={20}>
                     <Grid.Col xs={12} md={6}>
                         <Title order={1} c={"white"} >We believe in{" "}
-                            <Text component="span" variant="gradient" gradient={{ from: "#FBD72B", to: "#F9484A" }}>
+                            <Text component="span" variant="gradient" gradient={{ from: "#00BF63", to: "#00B712" }}>
                                 collaboration
                             </Text> and{" "}
-                            <Text component="span" variant="gradient" gradient={{ from: "#FBD72B", to: "#F9484A" }}>
+                            <Text component="span" variant="gradient" gradient={{ from: "#00BF63", to: "#00B712" }}>
                                 continuous learning
                             </Text>
                         </Title>

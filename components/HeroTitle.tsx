@@ -44,6 +44,7 @@ const useStyles = createStyles((theme) => ({
     description: {
         marginTop: theme.spacing.xl,
         marginBottom: theme.spacing.xl * 2,
+        maxWidth: 500,
         fontSize: 22,
         textAlign: "center",
 
@@ -75,8 +76,8 @@ export function HeroTitle() {
                     className={classes.title}
                 >
                     Repair instead of{' '}
-                    <Text component="span" variant="gradient" gradient={{ from: "#FBD72B", to: "#F9484A" }} inherit>
-                        Throwing-away
+                    <Text component="span" variant="gradient" gradient={{ from: "#00BF63", to: "#00B712" }} inherit>
+                        Throwing Away
                     </Text>{' '}
                 </motion.h1>
 
@@ -85,9 +86,11 @@ export function HeroTitle() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, delay: 0.5, ease: "easeIn" }}
                 >
-                    <Text className={classes.description} color="dimmed">
-                        We will help you repair your broken items instead of throwing them away.{' '}
-                    </Text>
+                    <Center>
+                        <Text className={classes.description} color="dimmed">
+                            We will help you repair your broken items instead of throwing them away.
+                        </Text>
+                    </Center>
                 </motion.div>
 
                 <motion.div
@@ -100,11 +103,9 @@ export function HeroTitle() {
                             onClick={handleClick}
                             size="xl"
                             // className={classes.control}
-                            variant="gradient"
-                            gradient={{ from: "#FBD72B", to: "#F9484A" }}
                             type="submit"
                         >
-                            Let us help you
+                            Repair!
                         </Button>
                     </Center>
                 </motion.div>

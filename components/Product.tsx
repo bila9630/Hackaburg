@@ -25,7 +25,7 @@ const Product = () => {
                 </Center>
                 <Grid>
                     <Grid.Col sm={12} md={4}>
-                        <BadgeCard
+                        <BadgeCard  
                             image="https://images.unsplash.com/photo-1611416517780-eff3a13b0359?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1349&q=80"
                             title="New office in New York"
                             country="New York"
