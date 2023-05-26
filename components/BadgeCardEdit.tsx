@@ -1,4 +1,4 @@
-import { IconHeart } from '@tabler/icons';
+import { IconPhone  } from '@tabler/icons';
 import {
     Card,
     Image,
@@ -8,8 +8,10 @@ import {
     Button,
     ActionIcon,
     createStyles,
-    TextInput
+    TextInput,
+    Textarea,
 } from '@mantine/core';
+
 
 const useStyles = createStyles((theme) => ({
     card: {
@@ -61,10 +63,6 @@ export function BadgeCardEdit({ image, title, description, country, badges }: Ba
 
     return (
         <Card withBorder radius="md" p="md" className={classes.card}>
-            <Card.Section>
-                <Image src={image} alt={title} height={180} />
-            </Card.Section>
-
             <Card.Section className={classes.section} mt="md">
                 <Group position="apart">
                     <Text fz="lg" fw={500}>
@@ -78,12 +76,6 @@ export function BadgeCardEdit({ image, title, description, country, badges }: Ba
             </Card.Section>
 
             <Card.Section className={classes.section}>
-            <TextInput
-              label="Name"
-              placeholder="Your name"
-              onChange={(event) => ''}
-              radius="md"
-            />
                 <Text mt="md" className={classes.label} c="dimmed">
                     Basic configuration
                 </Text>
@@ -92,13 +84,22 @@ export function BadgeCardEdit({ image, title, description, country, badges }: Ba
                 </Group>
             </Card.Section>
 
+            <Textarea
+              label="Contact the lister"
+              placeholder="Your message"
+              onChange={(event) => ''}
+              radius="md"
+            />
+            <Button
+            styles={(theme) => ({
+                root: {
+                  marginTop: 5}})}
+                >Submit</Button>
+
             <Group mt="xs">
-                <Button radius="md" style={{ flex: 1 }}>
-                    Show details
-                </Button>
-                <ActionIcon variant="default" radius="md" size={36}>
-                    <IconHeart size="1.1rem" className={classes.like} stroke={1.5} />
-                </ActionIcon>
+            <Button leftIcon={<IconPhone size="1rem" />}>
+                Call Lister
+            </Button>
             </Group>
         </Card>
     );
