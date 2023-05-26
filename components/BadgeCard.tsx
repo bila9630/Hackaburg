@@ -9,6 +9,7 @@ import {
     ActionIcon,
     createStyles,
     Textarea,
+    Anchor
 } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
@@ -98,10 +99,12 @@ export function BadgeCard({ image, title, description, difficulty, attributes }:
                   marginTop: 5}})}
                 >Submit</Button>
 
-            <Group mt="xs">
+            <Group mt="xs" >
+            <Anchor href="tel:01571234567891055246">
             <Button leftIcon={<IconPhone size="1rem" />}>
                 Call Lister
             </Button>
+            </Anchor>
             </Group>
         </Card>
     );
