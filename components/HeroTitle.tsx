@@ -53,9 +53,17 @@ const useStyles = createStyles((theme) => ({
     },
 }));
 
+
+
 export function HeroTitle() {
     const { classes } = useStyles();
     const router = useRouter()
+
+    function handleClick(): void {
+        console.log('Button clicked!');
+        router.push("/listing");
+      }
+
 
     return (
         <div className={classes.wrapper}>
@@ -89,6 +97,7 @@ export function HeroTitle() {
                 >
                     <Center>
                         <Button
+                            onClick={handleClick}
                             size="xl"
                             // className={classes.control}
                             variant="gradient"
