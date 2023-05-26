@@ -32,49 +32,42 @@ const Concept = () => {
             >
                 <Container maw={{ base: "100%", lg: "70%" }}>
                     <Image
-                        src="/concept.png"
+                        src="/concept1.svg"
                         alt="Concept"
                         caption="The process for users"
                     />
                 </Container>
                 <List mt={30} type="ordered">
-                    <List.Item>Sign up and provide information about yourself and your career. You can also upload your CV, but it will only be shared with companies you choose.</List.Item>
-                    <List.Item>Discover and interact with companies through various methods, such as watching company introductions, participating in gamification activities, or completing challenges. These activities are designed to help you learn about the company in a fun and interactive way.</List.Item>
-                    <List.Item>Receive prizes or &quot;swag&quot; for engaging with a company. These can range from simple items like pens and cups to more substantial items like t-shirts, backpacks, or invitations to company-organized events.</List.Item>
-                    <List.Item>If you&apos;re interested in a particular company, you can submit your CV and choose which information you want the recruiter to see. You can also include additional details, such as salary expectations, preferred roles, and whether you are open to working from home. The recruiter will review your CV and, if they are also interested in you, you will move on to the next steps.</List.Item>
-                    <List.Item>Chat with recruiters and developers or participate in a meetup with them to get to know each other better. The meetup can be online or in-person, and is a casual opportunity for both sides to get to know each other better.</List.Item>
-                    <List.Item>Apply for a specific role and potentially get hired by the company.</List.Item>
+                    <List.Item>If you have a solution, create a section on our website to assist others in repairing their broken items by providing possible solutions and guidance.</List.Item>
+                    <List.Item>Expand your network with people from different sectors.</List.Item>
+                    <List.Item>Refurbishing your knowledge by helping others is the best way to stay updated in the 21st century.</List.Item>
                 </List>
                 <Title mt={50} order={2} c={"white"}>
-                    Your benefits:
+                    Repairer's benefits:
                 </Title>
                 <FeaturesGrid />
                 <Title order={2} c={"white"}>
-                    Employers benefits:
+                    User's benefits:
                 </Title>
                 <FeaturesGrid data={[
                     {
                         icon: IconTelescope,
-                        title: "Enhance company visibility",
+                        title: "Get things done",
                         description:
-                            "Increase your brand awareness to a wider audience and get more people\
-                            interested in your company",
+                            "Get your broken things repaired with experts in no time.",
                     },
                     {
                         icon: IconUsers,
-                        title: "Access to passive candidates",
+                        title: "Meet new people",
                         description:
-                            "Our platform allows you to reach out to candidates who are not actively\
-                            looking for a job, but are interested in your company and would be a good\
-                            fit for your team."
+                            "Meet new people and become an expert in fixing things."
                     },
                     {
                         icon: IconHourglassHigh,
-                        title: "Save time and effort",
+                        title: "Save time and money",
                         description:
-                            "Save time and effort by having candidates apply to you instead of\
-                            you having to search for them. You can also use our gamification\
-                            activities to engage with candidates and learn more about them."
+                            "Save time and money by meeting friendly people instead of\
+                            throwing your broken things."
                     },
                 ]} />
             </motion.div>

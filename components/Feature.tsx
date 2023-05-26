@@ -10,45 +10,21 @@ import {
 export const MOCKDATA = [
     {
         icon: IconGlobe,
-        title: "Discover top employers",
+        title: "Lend a helping hand",
         description:
-            "Explore profiles of various companies in your region and narrow down\
-             your options based on the industry or field of work that interests you",
+            "Lend a helping hand towards people in need and socialize yourself.",
     },
     {
         icon: IconBackpack,
-        title: "get company merchandise",
+        title: "Enhancing Skills",
         description:
-            "Discover companies that interest you and earn company merchanise.\
-            You may also have the chance to attend company events."
-    },
-    {
-        icon: IconBookUpload,
-        title: "Easy application",
-        description:
-            "Apply with your linkedin profile or upload your resume. No hassle with\
-            filling out forms!"
-    },
-    {
-        icon: IconBookUpload,
-        title: "clear expectations",
-        description:
-            "Setup clear optional expectations about the job you are looking for.\
-            This might be salary expectations or preferred roles."
-    },
-    {
-        icon: IconCup,
-        title: "Informal exchange",
-        description:
-            "Experience an authentic view of the company by meeting with an employee\
-             virtually or in person for a special exchange.",
+            "Helping those in need enhances personal growth, skills, empathy, compassion, problem-solving, and fosters inclusivity and compassion in society.."
     },
     {
         icon: IconLock,
         title: 'Privacy focused',
         description:
-            "You have control over the information that you share with recruiters.\
-            Only the companies that you select will be able to see your data.",
+            "You have control over the information that you share with the users personally.",
     },
 ];
 

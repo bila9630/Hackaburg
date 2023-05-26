@@ -60,38 +60,38 @@ const Team = () => {
                     </Grid.Col>
                     <Grid.Col xs={12} md={6} lg={4}>
                         <PersonCard
-                            name={"Philipp"}
+                            name={"Philipp Scheuerer"}
                             position={"Founding Team"}
-                            description={"OTH"}
-                            image={"/duc.jpg"}
-                            linkedin={"https://www.linkedin.com/in/viet-duc-kieu-58b498178/"}
+                            description={"OTH Regensburg | AI"}
+                            image={"/philip.jpg"}
+                            linkedin={"https://www.linkedin.com/in/philipp-scheuerer-824b3a238/"}
                         />
                     </Grid.Col>
                     <Grid.Col xs={12} md={6} lg={4}>
                         <PersonCard
-                            name={"David"}
+                            name={"David Pan"}
                             position={"Founding Team"}
-                            description={"OTH"}
-                            image={"/duc.jpg"}
-                            linkedin={"https://www.linkedin.com/in/viet-duc-kieu-58b498178/"}
+                            description={"OTH Regensburg | Software Engineering"}
+                            image={"/david.jpg"}
+                            linkedin={"https://www.linkedin.com/in/david-pan-4196381bb/"}
                         />
                     </Grid.Col>
                     <Grid.Col xs={12} md={6} lg={4}>
                         <PersonCard
-                            name={"Sam"}
+                            name={"Abhishek Patel"}
                             position={"Founding Team"}
-                            description={"Uni"}
-                            image={"/duc.jpg"}
-                            linkedin={"https://www.linkedin.com/in/viet-duc-kieu-58b498178/"}
-                        />
+                            description={"Katholische Universität Ingolstadt | Data Science"}
+                            image={"/abi.jpg"}
+                            linkedin={"https://www.linkedin.com/in/abhishek-patel-ab9527246/"}
+                            />
                     </Grid.Col>
                     <Grid.Col xs={12} md={6} lg={4}>
                         <PersonCard
-                            name={"Abi"}
+                            name={"Samantha Geller"}
                             position={"Founding Team"}
-                            description={"OTH"}
-                            image={"/duc.jpg"}
-                            linkedin={"https://www.linkedin.com/in/viet-duc-kieu-58b498178/"}
+                            description={"University Regensburg | Media Informatik"}
+                            image={"/sam.jpg"}
+                            linkedin={"https://www.linkedin.com"}
                         />
                     </Grid.Col>
                 </Grid>
