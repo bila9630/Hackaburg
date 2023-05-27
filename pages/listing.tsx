@@ -50,6 +50,8 @@ const Listing = () => {
 
   const { addPosting, imageName, imageUpload }: any = useContext(DatabaseContext)
   const [displaySuccess, setDisplaySuccess] = useState(false)
+  const [displayLoading, setDisplayLoading] = useState(false)
+
   return (
     <>
       <Container size={700}>
@@ -58,19 +60,14 @@ const Listing = () => {
         <Space h={20} />
 
         <form onSubmit={form.onSubmit(async (values) => {
+          setDisplayLoading(true)
+          setDisplaySuccess(false)
           console.log(values)
           // upload image to firebase
           const imageRef = ref(storage, `images/${imageUpload.name}`);
           const snapshot = uploadBytes(imageRef, imageUpload)
           const url = await getDownloadURL((await snapshot).ref)
           const imgUrl = url
-          // uploadBytes(imageRef, imageUpload).then((snapshot) => {
-          //   getDownloadURL(snapshot.ref).then((url) => {
-          //     console.log(url);
-          //     setImgUrl(imgUrl)
-          //   });
-          // });
-
 
           // send data to firebase
           let postingData = {
@@ -88,6 +85,7 @@ const Listing = () => {
           }
           await addPosting(postingData)
           form.reset()
+          setDisplayLoading(false)
           setDisplaySuccess(true)
           console.log("finished")
         })}>
@@ -148,7 +146,7 @@ const Listing = () => {
           />
           <Space h={20} />
           {displaySuccess && (<Text ta={"center"} mt={10} c={"green"}>Your message has been sent successfully!</Text>)}
-
+          {displayLoading && (<Text ta={"center"} mt={10} c="yellow">Loading...</Text>)}
 
           {/* Group is from docs */}
           <Group position="center" mt="xl">

@@ -9,7 +9,6 @@ import {
     createStyles,
     Textarea,
     Anchor,
-    Grid,
     Box,
     Flex,
     Space
@@ -55,6 +54,7 @@ export function BadgeCard({ image, title, description, difficulty, attributes }:
     const { classes, theme } = useStyles();
     const [textAreValue, setTextAreaValue] = useState("");
     const [displaySuccess, setDisplaySuccess] = useState(false)
+    const [displayWarning, setDisplayWarning] = useState(false)
 
 
     const features = attributes.map((badge) => (
@@ -94,7 +94,7 @@ export function BadgeCard({ image, title, description, difficulty, attributes }:
                 </Group>
             </Card.Section>
 
-            
+
 
             <Textarea
                 label="Contact the lister"
@@ -104,27 +104,34 @@ export function BadgeCard({ image, title, description, difficulty, attributes }:
                 radius="md"
             />
             {displaySuccess && (<Text ta={"center"} mt={10} mb={10} c={"green"}>Your message has been sent successfully!</Text>)}
+            {displayWarning && (<Text ta={"center"} mt={10} mb={10} c={"yellow"}>Cant send an empty message!</Text>)}
 
-            <Space h="xs"/>
+            <Space h="xs" />
 
-                    <Flex gap="md">
-      <Box w={240}>
+            <Flex gap="md">
+                <Box w={240}>
                     <Button fullWidth onClick={() => {
+                        if (textAreValue === "") {
+                            setDisplayWarning(true)
+                            setDisplaySuccess(false)
+                            return
+                        }
+                        setDisplayWarning(false)
                         setTextAreaValue("")
                         setDisplaySuccess(true)
                     }}>
                         Submit
                     </Button>
-      </Box>
+                </Box>
 
-      <Box w={140}>
+                <Box w={140}>
                     <Anchor href="tel:01571234567891055246">
-                        <Button color="red"  radius="xl" leftIcon={<IconPhone size="1rem" />}>
+                        <Button color="red" radius="xl" leftIcon={<IconPhone size="1rem" />}>
                             Call Lister
                         </Button>
                     </Anchor>
-      </Box>
-    </Flex>
+                </Box>
+            </Flex>
         </Card>
     );
 }
