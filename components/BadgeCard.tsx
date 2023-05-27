@@ -9,7 +9,10 @@ import {
     createStyles,
     Textarea,
     Anchor,
-    Grid
+    Grid,
+    Box,
+    Flex,
+    Space
 } from '@mantine/core';
 import { useState } from 'react';
 
@@ -91,6 +94,8 @@ export function BadgeCard({ image, title, description, difficulty, attributes }:
                 </Group>
             </Card.Section>
 
+            
+
             <Textarea
                 label="Contact the lister"
                 placeholder="Your message"
@@ -100,23 +105,26 @@ export function BadgeCard({ image, title, description, difficulty, attributes }:
             />
             {displaySuccess && (<Text ta={"center"} mt={10} mb={10} c={"green"}>Your message has been sent successfully!</Text>)}
 
-            <Grid>
-                <Grid.Col sm={8}>
-                    <Button onClick={() => {
+            <Space h="xs"/>
+
+                    <Flex gap="md">
+      <Box w={240}>
+                    <Button fullWidth onClick={() => {
                         setTextAreaValue("")
                         setDisplaySuccess(true)
                     }}>
                         Submit
                     </Button>
-                </Grid.Col>
-                <Grid.Col sm={4}>
+      </Box>
+
+      <Box w={140}>
                     <Anchor href="tel:01571234567891055246">
-                        <Button leftIcon={<IconPhone size="1rem" />}>
+                        <Button color="red"  radius="xl" leftIcon={<IconPhone size="1rem" />}>
                             Call Lister
                         </Button>
                     </Anchor>
-                </Grid.Col>
-            </Grid>
+      </Box>
+    </Flex>
         </Card>
     );
 }

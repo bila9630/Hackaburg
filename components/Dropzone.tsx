@@ -1,4 +1,5 @@
-import { Group, Text, useMantineTheme } from '@mantine/core';
+
+import { Group, Text, useMantineTheme, Image } from '@mantine/core';
 import { IconUpload, IconPhoto, IconX } from '@tabler/icons';
 import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE } from '@mantine/dropzone';
 
@@ -40,6 +41,7 @@ export function ImageItemUpload(props: Partial<DropzoneProps>) {
           </Text>
         </div>
       </Group>
+      <Image></Image>
     </Dropzone>
   );
 }

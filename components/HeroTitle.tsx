@@ -1,6 +1,8 @@
-import { Button, Center, Container, createStyles, Text } from '@mantine/core';
+import { Button, Center, Container, createStyles, Text, ActionIcon } from '@mantine/core';
 import { motion } from "framer-motion";
 import { useRouter } from 'next/router';
+import { IconChevronDown } from '@tabler/icons';
+import { useScrollIntoView } from '@mantine/hooks';
 
 
 const BREAKPOINT = '@media (max-width: 755px)';
@@ -109,7 +111,24 @@ export function HeroTitle() {
                         </Button>
                     </Center>
                 </motion.div>
+            
             </Container>
+
+            <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 1.5, ease: "easeIn" }}>
+                    <Center>
+                        <Text fz="sm" className={classes.description} color="dimmed">
+                        Scroll down to help people
+                        </Text>
+                    </Center>
+                    <Center>
+                <ActionIcon fz="sm">
+                    <IconChevronDown />
+                </ActionIcon>
+                </Center>
+                </motion.div>
         </div>
     );
 }
