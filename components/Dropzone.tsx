@@ -2,7 +2,7 @@ import { Group, Text, useMantineTheme } from '@mantine/core';
 import { IconUpload, IconPhoto, IconX } from '@tabler/icons';
 import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE } from '@mantine/dropzone';
 
-export function BaseDemo(props: Partial<DropzoneProps>) {
+export function ImageItemUpload(props: Partial<DropzoneProps>) {
   const theme = useMantineTheme();
   return (
     <Dropzone
@@ -12,7 +12,7 @@ export function BaseDemo(props: Partial<DropzoneProps>) {
       accept={IMAGE_MIME_TYPE}
       {...props}
     >
-      <Group position="center" spacing="xl" style={{ minHeight: 220, pointerEvents: 'none' }}>
+      <Group position="center" spacing="xl" style={{ minHeight: 160, pointerEvents: 'none' }}>
         <Dropzone.Accept>
           <IconUpload
             size="3.2"

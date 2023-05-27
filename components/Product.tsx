@@ -45,7 +45,7 @@ const Product = () => {
             <Container size={1100}>
                 <Center>
                     <h1>Current open postings</h1>
-                    <Button onClick={() => { console.log(postings) }}>fetch</Button>
+                    {/* <Button onClick={() => { console.log(postings) }}>fetch</Button> */}
                 </Center>
                 <Grid>
                     {postings.map((posting: any, index: number) => {
@@ -74,28 +74,6 @@ const Product = () => {
                             </Grid.Col>
                         )
                     })}
-                    {/* <Grid.Col sm={12} md={4}>
-                        <BadgeCard
-                            image="https://images.unsplash.com/photo-1611416517780-eff3a13b0359?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1349&q=80"
-                            title="New office in New York"
-                            country="New York"
-                            description="We are expanding to New York! Check out our new office!!"
-                            badges={[
-                                {
-                                    "emoji": "☀️",
-                                    "label": "Sunny weather"
-                                },
-                                {
-                                    "emoji": "🦓",
-                                    "label": "Onsite zoo"
-                                },
-                                {
-                                    "emoji": "🌊",
-                                    "label": "Sea"
-                                },
-                            ]}
-                        />
-                    </Grid.Col> */}
                 </Grid>
             </Container>
         </div>

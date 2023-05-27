@@ -1,4 +1,4 @@
-import { IconPhone, IconMail  } from '@tabler/icons';
+import { IconPhone, IconMail } from '@tabler/icons';
 import {
     Card,
     Image,
@@ -12,8 +12,11 @@ import {
     TextInput,
     Textarea,
     NativeSelect,
-    Container
+    Container,
+    Input,
+    Center
 } from '@mantine/core';
+import { useState } from 'react';
 
 
 const useStyles = createStyles((theme) => ({
@@ -41,18 +44,16 @@ const useStyles = createStyles((theme) => ({
 }));
 
 interface BadgeCardProps {
-    image: string;
-    title: string;
-    country: string;
-    description: string;
     badges: {
         emoji: string;
         label: string;
     }[];
 }
 
-export function BadgeCardEdit({ image, title, description, country, badges }: BadgeCardProps) {
+export function BadgeCardEdit({ badges }: BadgeCardProps) {
     const { classes, theme } = useStyles();
+    const [title, setTitle] = useState("");
+
 
     const features = badges.map((badge) => (
         <Badge
@@ -64,24 +65,25 @@ export function BadgeCardEdit({ image, title, description, country, badges }: Ba
         </Badge>
     ));
 
+
+
     return (
         <Card withBorder radius="md" p="md" className={classes.card}>
             <Card.Section className={classes.section} mt="md">
-                    
-                    <TextInput  fz="lg" fw={500} label='Title'
+
+                <TextInput fz="lg" fw={500} label='Title'
                     placeholder="Enter your problem title" withAsterisk></TextInput>
-                    <Space h="xs" />
-                    <NativeSelect
-                        data={['unknown','easy', 'medium', 'hard',]}
-                        label="Select the anticipated difficulty"
-                    />
-                    <Space h="xs" />
-                    <Textarea autosize
+                <Space h="xs" />
+                <NativeSelect
+                    data={['unknown', 'easy', 'medium', 'hard',]}
+                    label="Select the anticipated difficulty"
+                />
+                <Space h="xs" />
+                <Textarea autosize
                     minRows={2} fz="mi" fw={500} label='Description'
                     placeholder="Enter details about your problem" withAsterisk></Textarea>
-                    
             </Card.Section>
-            
+
 
             <Card.Section className={classes.section}>
                 <Text mt="md" className={classes.label} c="dimmed">
@@ -92,21 +94,23 @@ export function BadgeCardEdit({ image, title, description, country, badges }: Ba
                 </Group>
             </Card.Section>
 
-            <Group mt="xs">
-            <Button leftIcon={<IconMail size="1rem" />}>
-                <TextInput placeholder='Enter Mail'></TextInput>
-            </Button>
-            <Button leftIcon={<IconPhone size="1rem" />}>
-                <TextInput placeholder='Enter Phone Number'></TextInput>
-            </Button>
-            </Group>
-            <Group mt="xs">
-            <Button
-            styles={(theme) => ({
-                root: {
-                  marginTop: 5}})}
-                >Submit</Button>
-                </Group>
+            {/* <Button leftIcon={<IconMail size="1rem" />}>
+                    <TextInput placeholder='Enter Mail'></TextInput>
+                </Button> */}
+            <Space h={20} />
+            <Input
+                icon={<IconMail size="1rem" />}
+                placeholder="Your email"
+            />
+            <Space h={20} />
+            <Input
+                icon={<IconPhone size="1rem" />}
+                placeholder="Your phone number"
+            />
+            <Space h={20} />
+            <Center>
+                <Button>Submit</Button>
+            </Center>
         </Card>
     );
 }
