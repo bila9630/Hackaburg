@@ -1,26 +1,55 @@
-import React from 'react'
-import { BadgeCardEdit } from '../components/BadgeCardEdit';
-import { Button, Container, Group, Input, Space, Text, TextInput, Textarea } from '@mantine/core'
+import React, { useContext, useState } from 'react'
+import { Badge, Button, Container, Group, Input, NativeSelect, NumberInput, Space, Text, TextInput, Textarea } from '@mantine/core'
 import { ImageItemUpload } from '../components/Dropzone';
 import { useForm } from '@mantine/form';
-import { IconMail, IconPhone } from '@tabler/icons';
+import { DatabaseContext } from '../contexts/DatabaseContext';
+import { storage } from '../firebaseClient';
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+
 
 const Listing = () => {
+  const badges = [
+    {
+      "emoji": "Model:",
+      "label": "Bosch TZ21"
+    },
+    {
+      "emoji": "Year:",
+      "label": "2012"
+    },
+    {
+      "emoji": "+",
+      "label": ""
+    },
+  ]
+
+  const features = badges.map((badge) => (
+    <Badge
+      key={badge.label}
+      leftSection={badge.emoji}
+    >
+      {badge.label}
+    </Badge>
+  ));
+
   const form = useForm({
     initialValues: {
       title: "",
       description: "",
       email: "",
-      phone: 1234567890,
+      phone: 0,
+      difficulty: "unknown",
     },
 
     validate: {
       title: (value) => value.trim().length < 1,
       description: (value) => value.trim().length < 1,
-      email: (value) => value.trim().length < 1,
+      email: (value) => !/^\S+@\S+$/.test(value),
     },
   })
 
+  const { addPosting, imageName, imageUpload }: any = useContext(DatabaseContext)
+  const [displaySuccess, setDisplaySuccess] = useState(false)
   return (
     <>
       <Container size={700}>
@@ -28,13 +57,47 @@ const Listing = () => {
         <Text ta={"center"} fz={30} fw={700}>Create a posting</Text>
         <Space h={20} />
 
-        <form onSubmit={form.onSubmit((values) => {
+        <form onSubmit={form.onSubmit(async (values) => {
           console.log(values)
-          console.log("hello world!")
+          // upload image to firebase
+          const imageRef = ref(storage, `images/${imageUpload.name}`);
+          const snapshot = uploadBytes(imageRef, imageUpload)
+          const url = await getDownloadURL((await snapshot).ref)
+          const imgUrl = url
+          // uploadBytes(imageRef, imageUpload).then((snapshot) => {
+          //   getDownloadURL(snapshot.ref).then((url) => {
+          //     console.log(url);
+          //     setImgUrl(imgUrl)
+          //   });
+          // });
+
+
+          // send data to firebase
+          let postingData = {
+            title: values.title,
+            description: values.description,
+            email: values.email,
+            phone: values.phone,
+            difficulty: values.difficulty,
+            attributes: {
+              modell: "heyho",
+              year: 2200,
+            },
+            image: imgUrl,
+            price: [0, 10]
+          }
+          await addPosting(postingData)
+          form.reset()
+          setDisplaySuccess(true)
+          console.log("finished")
         })}>
 
           <h4>Upload image of your broken item</h4>
           <ImageItemUpload />
+          {imageName && (
+            <Text ta={"center"} mt={10} c={"green"}>{imageName} uploaded successfully!</Text>
+          )}
+
           <Space h={20} />
 
           <TextInput
@@ -52,18 +115,40 @@ const Listing = () => {
             withAsterisk
             {...form.getInputProps("description")}
           />
+          <Space h={5} />
+
+          <h5>Basic configuration</h5>
+          <Group spacing={7} mt={5}>
+            {features}
+          </Group>
           <Space h={20} />
 
-          <Input
-            icon={<IconMail size="1rem" />}
-            placeholder="Your email"
+          <TextInput
+            fz="lg" fw={500} label='email'
+            placeholder="Enter your email"
+            withAsterisk
+            {...form.getInputProps("email")}
           />
           <Space h={20} />
 
-          <Input
-            icon={<IconPhone size="1rem" />}
-            placeholder="Your phone number"
+          <NumberInput
+            placeholder="Enter your telephone number"
+            label="telephone number"
+            withAsterisk
+            hideControls
+            {...form.getInputProps("phone")}
           />
+          <Space h={20} />
+
+          <NativeSelect
+            data={['unknown', 'easy', 'medium', 'hard',]}
+            label="Select the anticipated difficulty"
+            withAsterisk
+            {...form.getInputProps("difficulty")}
+          />
+          <Space h={20} />
+          {displaySuccess && (<Text ta={"center"} mt={10} c={"green"}>Your message has been sent successfully!</Text>)}
+
 
           {/* Group is from docs */}
           <Group position="center" mt="xl">
@@ -71,26 +156,11 @@ const Listing = () => {
               Submit posting
             </Button>
           </Group>
+
+          <Space h={20} />
+
         </form>
 
-        <Space h={200} />
-
-        <BadgeCardEdit
-          badges={[
-            {
-              "emoji": "Model:",
-              "label": "Bosch TZ21"
-            },
-            {
-              "emoji": "Year:",
-              "label": "2012"
-            },
-            {
-              "emoji": "+",
-              "label": ""
-            },
-          ]}
-        />
       </Container>
     </>
   )

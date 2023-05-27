@@ -63,7 +63,6 @@ export function HeroTitle() {
     const router = useRouter()
 
     function handleClick(): void {
-        console.log('Button clicked!');
         router.push("/listing");
       }
 

@@ -30,7 +30,6 @@ export default function handler(
   sgMail
     .send(msg)
     .then(() => {
-      // console.log('Email sent')
       res.status(200).json({ msg: "Email is sent!" })
     })
     .catch((error: any) => {

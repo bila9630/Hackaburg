@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 import { app } from '../firebaseClient';
 import { getFirestore, getDocs, collection, orderBy, query, limit, addDoc } from "firebase/firestore";
 
@@ -17,6 +17,9 @@ interface postingData {
 
 const DatabaseContextProvider = (props: any) => {
     const db: any = getFirestore(app)
+    const [imageName, setImageName] = useState("");
+    const [imageUpload, setImageUpload] = useState<File | undefined>();
+
 
     // fetch all postings
     const fetchPosting = async (setPostings: any) => {
@@ -42,10 +45,12 @@ const DatabaseContextProvider = (props: any) => {
             price: data.price,
             title: data.title
         })
-        // db.collection("postings").add(data)
     }
 
-    const value: any = { fetchPosting, addPosting };
+    const value: any = {
+        fetchPosting, addPosting, imageName, setImageName,
+        imageUpload, setImageUpload
+    };
 
     return (
         <DatabaseContext.Provider value={value}>
