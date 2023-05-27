@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
         dark: ["#C1C2C5", "#C1C2C5", "#909296", "#5C5F66", "#373A40", "#2C2E33", "#25262B", "#141517", "#141517", "#101113"],
       },
       primaryColor: "brand",
-      colorScheme: "dark"
+      colorScheme: "light"
     }} withGlobalStyles withNormalizeCSS>
       <DatabaseContextProvider>
         {/* layout contains header and footer */}

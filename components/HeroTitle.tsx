@@ -63,8 +63,8 @@ export function HeroTitle() {
     const router = useRouter()
 
     function handleClick(): void {
-        router.push("/listing");
-      }
+        router.push("/tree");
+    }
 
 
     return (
@@ -110,24 +110,24 @@ export function HeroTitle() {
                         </Button>
                     </Center>
                 </motion.div>
-            
+
             </Container>
 
             <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 1.5, ease: "easeIn" }}>
-                    <Center>
-                        <Text fz="sm" className={classes.description} color="dimmed">
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 1.5, ease: "easeIn" }}>
+                <Center>
+                    <Text fz="sm" className={classes.description} color="dimmed">
                         Scroll down to help people
-                        </Text>
-                    </Center>
-                    <Center>
-                <ActionIcon fz="sm">
-                    <IconChevronDown />
-                </ActionIcon>
+                    </Text>
                 </Center>
-                </motion.div>
+                <Center>
+                    <ActionIcon fz="sm">
+                        <IconChevronDown />
+                    </ActionIcon>
+                </Center>
+            </motion.div>
         </div>
     );
 }
