@@ -16,26 +16,24 @@ import 'reactflow/dist/style.css';
 
 
 const initialNodes = [
-    { id: '1', position: { x: 100, y: 100 }, data: { label: 'Your washing machine is broken?' } },
-    { id: '2', position: { x: 100, y: 200 }, data: { label: 'Drum not spinning' } },
-    { id: '3', position: { x: 200, y: 100 }, data: { label: 'Leaking water' } },
-    { id: '4', position: { x: 200, y: 200 }, data: { label: 'Water not draining' } },
-    { id: '5', position: { x: 300, y: 100 }, data: { label: 'There have been power outages or fluctuations recently.' } },
-    { id: '6', position: { x: 300, y: 200 }, data: { label: 'The cable is intact and plugged in.' } },
-    { id: '7', position: { x: 300, y: 200 }, data: { label: 'It makes strange sounds.' } },
-    { id: '8', position: { x: 300, y: 200 }, data: { label: 'Check the drive belt.' } },
-    { id: '9', position: { x: 300, y: 200 }, data: { label: 'Check drum bearings.' } },
-    { id: '10', position: { x: 300, y: 200 }, data: { label: 'Check drum paddles or agitators.' } },
-    { id: '11', position: { x: 300, y: 200 }, data: { label: 'Is the cable intact and plugged in?' } },
-    { id: '12', position: { x: 300, y: 200 }, data: { label: 'Problem solved!' } },
-    { id: '13', position: { x: 300, y: 200 }, data: { label: 'Problem not solved! (revert and try an other path of fixing)' } },
-    { id: '14', position: { x: 300, y: 200 }, data: { label: 'Water leaking on one of the sides.' } },
-    { id: '15', position: { x: 300, y: 200 }, data: { label: 'Water leaking from below.' } },
-    { id: '16', position: { x: 300, y: 200 }, data: { label: 'Check for faulty or damaged water inlet valve.' } },
-    { id: '17', position: { x: 300, y: 200 }, data: { label: 'Check for cracked or dameged tub or drum.' } },
-    { id: '18', position: { x: 300, y: 200 }, data: { label: 'Check for worn out pump or pump filter.' } },
-    { id: '19', position: { x: 300, y: 200 }, data: { label: 'Problem solved!' } },
-    { id: '20', position: { x: 300, y: 200 }, data: { label: 'Problem solved!' } },
+    { id: '1', position: { x: 700, y: 50 }, data: { label: 'Your washing machine is broken?' } },
+    { id: '2', position: { x: 100, y: 150 }, data: { label: 'Drum not spinning' } },
+    { id: '3', position: { x: 700, y: 150 }, data: { label: 'Leaking water' } },
+    { id: '4', position: { x: 1100, y: 150 }, data: { label: 'Water not draining' } },
+    { id: '5', position: { x: 50, y: 250 }, data: { label: 'There have been power outages or fluctuations recently.' } },
+    { id: '6', position: { x: 200, y: 250 }, data: { label: 'The cable is intact and plugged in.' } },
+    { id: '7', position: { x: 350, y: 250 }, data: { label: 'It makes strange sounds.' } },
+    { id: '8', position: { x: 100, y: 400 }, data: { label: 'Check the drive belt.' } },
+    { id: '9', position: { x: 250, y: 400 }, data: { label: 'Check drum bearings.' } },
+    { id: '10', position: { x: 400, y: 400 }, data: { label: 'Check drum paddles or agitators.' } },
+    { id: '11', position: { x: 550, y: 400 }, data: { label: 'Is the cable intact and plugged in?' } },
+    { id: '12', position: { x: 500, y: 600 }, data: { label: 'Problem solved!' } },
+    { id: '13', position: { x: 700, y: 600 }, data: { label: 'Problem not solved! (revert and try an other path of fixing)' } },
+    { id: '14', position: { x: 600, y: 250 }, data: { label: 'Water leaking on one of the sides.' } },
+    { id: '15', position: { x: 800, y: 250 }, data: { label: 'Water leaking from below.' } },
+    { id: '16', position: { x: 600, y: 400 }, data: { label: 'Check for faulty or damaged water inlet valve.' } },
+    { id: '17', position: { x: 800, y: 400 }, data: { label: 'Check for cracked or dameged tub or drum.' } },
+    { id: '18', position: { x: 950, y: 400 }, data: { label: 'Check for worn out pump or pump filter.' } }
 ];
 const initialEdges = [
     { id: 'e1-2', source: '1', target: '2' },
@@ -62,6 +60,12 @@ const initialEdges = [
     { id: 'e4-6', source: '14', target: '18' },
     { id: 'e4-6', source: '15', target: '16' },
     { id: 'e4-6', source: '15', target: '18' },
+    { id: 'e4-6', source: '16', target: '12' },
+    { id: 'e4-6', source: '16', target: '13' },
+    { id: 'e4-6', source: '17', target: '12' },
+    { id: 'e4-6', source: '17', target: '13' },
+    { id: 'e4-6', source: '18', target: '12' },
+    { id: 'e4-6', source: '18', target: '13' },
 ];
 
 
@@ -89,7 +93,7 @@ const Tree = () => {
 
 
     return (
-        <div style={{ width: '100vw', height: '90vh' }}>
+        <div style={{ width: '100vw', height: '85vh' }}>
             <ReactFlow
                 nodes={nodes}
                 edges={edges}
