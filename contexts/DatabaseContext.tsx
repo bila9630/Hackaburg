@@ -33,7 +33,6 @@ const DatabaseContextProvider = (props: any) => {
 
     // add a new posting
     const addPosting = async (data: postingData) => {
-        console.log("adding posting")
         const postingDbRef = collection(db, "postings")
         await addDoc(postingDbRef, {
             attributes: data.attributes,

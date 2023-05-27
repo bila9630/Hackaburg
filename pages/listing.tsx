@@ -48,7 +48,7 @@ const Listing = () => {
     },
   })
 
-  const { addPosting, imageName, imageUpload }: any = useContext(DatabaseContext)
+  const { addPosting, imageName, imageUpload, setImageName }: any = useContext(DatabaseContext)
   const [displaySuccess, setDisplaySuccess] = useState(false)
   const [displayLoading, setDisplayLoading] = useState(false)
 
@@ -87,6 +87,7 @@ const Listing = () => {
           form.reset()
           setDisplayLoading(false)
           setDisplaySuccess(true)
+          setImageName("")
           console.log("finished")
         })}>
 

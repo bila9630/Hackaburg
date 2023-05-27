@@ -13,7 +13,7 @@ const Team = () => {
             >
                 <Grid mt={50} mb={20}>
                     <Grid.Col xs={12} md={6}>
-                        <Title order={1} c={"white"} >We believe in{" "}
+                        <Title order={1}>We believe in{" "}
                             <Text component="span" variant="gradient" gradient={{ from: "#00BF63", to: "#00B712" }}>
                                 collaboration
                             </Text> and{" "}
@@ -47,13 +47,13 @@ const Team = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.5, ease: "easeIn" }}
             >
-                <Title order={3} c={"white"} mb={"lg"} >Meet the team</Title>
+                <Title order={3} mb={"lg"} >Meet the team</Title>
                 <Grid>
                     <Grid.Col xs={12} md={6} lg={4}>
                         <PersonCard
                             name={"Viet Duc Kieu"}
                             position={"Founding Team"}
-                            description={"DHBW | Data Science"}
+                            description={"DHBW | Software Engineering"}
                             image={"/duc.jpg"}
                             linkedin={"https://www.linkedin.com/in/viet-duc-kieu-58b498178/"}
                         />
@@ -83,7 +83,7 @@ const Team = () => {
                             description={"Katholische Universität Ingolstadt | Data Science"}
                             image={"/abi.jpg"}
                             linkedin={"https://www.linkedin.com/in/abhishek-patel-ab9527246/"}
-                            />
+                        />
                     </Grid.Col>
                     <Grid.Col xs={12} md={6} lg={4}>
                         <PersonCard

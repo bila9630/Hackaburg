@@ -12,7 +12,7 @@ const Concept = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
             >
-                <Title mt={50} mb={20} order={1} c={"white"}>
+                <Title mt={50} mb={20} order={1}>
                     Our concept
                 </Title>
             </motion.div>
