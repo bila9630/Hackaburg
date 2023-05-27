@@ -16,10 +16,53 @@ import 'reactflow/dist/style.css';
 
 
 const initialNodes = [
-    { id: '1', position: { x: 100, y: 100 }, data: { label: 'Your washmachine is broken?' } },
-    { id: '2', position: { x: 100, y: 200 }, data: { label: '2' } },
+    { id: '1', position: { x: 100, y: 100 }, data: { label: 'Your washing machine is broken?' } },
+    { id: '2', position: { x: 100, y: 200 }, data: { label: 'Drum not spinning' } },
+    { id: '3', position: { x: 200, y: 100 }, data: { label: 'Leaking water' } },
+    { id: '4', position: { x: 200, y: 200 }, data: { label: 'Water not draining' } },
+    { id: '5', position: { x: 300, y: 100 }, data: { label: 'There have been power outages or fluctuations recently.' } },
+    { id: '6', position: { x: 300, y: 200 }, data: { label: 'The cable is intact and plugged in.' } },
+    { id: '7', position: { x: 300, y: 200 }, data: { label: 'It makes strange sounds.' } },
+    { id: '8', position: { x: 300, y: 200 }, data: { label: 'Check the drive belt.' } },
+    { id: '9', position: { x: 300, y: 200 }, data: { label: 'Check drum bearings.' } },
+    { id: '10', position: { x: 300, y: 200 }, data: { label: 'Check drum paddles or agitators.' } },
+    { id: '11', position: { x: 300, y: 200 }, data: { label: 'Is the cable intact and plugged in?' } },
+    { id: '12', position: { x: 300, y: 200 }, data: { label: 'Problem solved!' } },
+    { id: '13', position: { x: 300, y: 200 }, data: { label: 'Problem not solved! (revert and try an other path of fixing)' } },
+    { id: '14', position: { x: 300, y: 200 }, data: { label: 'Water leaking on one of the sides.' } },
+    { id: '15', position: { x: 300, y: 200 }, data: { label: 'Water leaking from below.' } },
+    { id: '16', position: { x: 300, y: 200 }, data: { label: 'Check for faulty or damaged water inlet valve.' } },
+    { id: '17', position: { x: 300, y: 200 }, data: { label: 'Check for cracked or dameged tub or drum.' } },
+    { id: '18', position: { x: 300, y: 200 }, data: { label: 'Check for worn out pump or pump filter.' } },
+    { id: '19', position: { x: 300, y: 200 }, data: { label: 'Problem solved!' } },
+    { id: '20', position: { x: 300, y: 200 }, data: { label: 'Problem solved!' } },
 ];
-const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }];
+const initialEdges = [
+    { id: 'e1-2', source: '1', target: '2' },
+    { id: 'e1-3', source: '1', target: '3' },
+    { id: 'e2-4', source: '1', target: '4' },
+    { id: 'e3-5', source: '2', target: '5' },
+    { id: 'e4-6', source: '2', target: '6' },
+    { id: 'e4-6', source: '2', target: '7' },
+    { id: 'e4-6', source: '7', target: '8' },
+    { id: 'e4-6', source: '7', target: '9' },
+    { id: 'e4-6', source: '7', target: '10' },
+    { id: 'e4-6', source: '7', target: '11' },
+    { id: 'e4-6', source: '8', target: '12' },
+    { id: 'e4-6', source: '8', target: '13' },
+    { id: 'e4-6', source: '9', target: '12' },
+    { id: 'e4-6', source: '9', target: '13' },
+    { id: 'e4-6', source: '10', target: '12' },
+    { id: 'e4-6', source: '10', target: '13' },
+    { id: 'e4-6', source: '11', target: '12' },
+    { id: 'e4-6', source: '11', target: '13' },
+    { id: 'e4-6', source: '3', target: '14' },
+    { id: 'e4-6', source: '3', target: '15' },
+    { id: 'e4-6', source: '14', target: '17' },
+    { id: 'e4-6', source: '14', target: '18' },
+    { id: 'e4-6', source: '15', target: '16' },
+    { id: 'e4-6', source: '15', target: '18' },
+];
 
 
 const Tree = () => {

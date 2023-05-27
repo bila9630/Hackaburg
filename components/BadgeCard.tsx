@@ -80,7 +80,7 @@ export function BadgeCard({ image, title, description, difficulty, attributes }:
                     </Text>
                     <Badge size="sm">{difficulty}</Badge>
                 </Group>
-                <Text fz="sm" mt="xs">
+                <Text lineClamp={4} fz="sm" mt="xs">
                     {description}
                 </Text>
             </Card.Section>
